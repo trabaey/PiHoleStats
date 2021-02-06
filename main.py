@@ -68,11 +68,11 @@ backlight = digitalio.DigitalInOut(board.D22)
 backlight.switch_to_output()
 backlight.value = True
 
-# Add buttons as inputs
+# Add first button as input
 buttonA = digitalio.DigitalInOut(board.D23)
 buttonA.switch_to_input()
 
-# Add buttons as inputs (guess this time)
+# Add second button as input (the screen has labeled the buttons as d23 and d24)
 buttonB = digitalio.DigitalInOut(board.D24)
 buttonB.switch_to_input()
 
