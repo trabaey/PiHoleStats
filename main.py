@@ -117,7 +117,7 @@ while True:
         draw.text((x, y), Disk, font=font, fill="#0000FF")
         y += font.getsize(Disk)[1]
         draw.text((x, y), "Queries: {}".format(DNSQUERIES), font=font, fill="#FF00FF")
-    if not buttonB.value:  # just button B pressed
+    elif not buttonB.value:  # just button B pressed
         draw.text((x, y), IP, font=font, fill="#FFFF00")
         y += font.getsize(IP)[1]
         draw.text((x, y), 'I cant think', font=font, fill="#FFFF00")
