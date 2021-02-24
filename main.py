@@ -24,6 +24,7 @@ reset_pin = None
 
 # Config for display baudrate (default max is 24mhz):
 BAUDRATE = 64000000
+#I think this means that the update is slow?
 
 # Setup SPI bus using hardware SPI:
 spi = board.SPI()
@@ -43,7 +44,7 @@ rotation = 90
 draw = ImageDraw.Draw(image)
 
 # Draw a black filled box to clear the image.
-draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0))
+draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0)) # if i went 255, 255, 255 it would be white
 disp.image(image, rotation)
 # Draw some shapes.
 # First define some constants to allow easy resizing of shapes.
@@ -89,7 +90,7 @@ while True:
     HOST = subprocess.check_output(cmd, shell=True).decode("utf-8")
     cmd = "top -bn1 | grep load | awk '{printf \"CPU Load: %.2f\", $(NF-2)}'"
     CPU = subprocess.check_output(cmd, shell=True).decode("utf-8")
-    cmd = "free -m | awk 'NR==2{printf \"Mem: %s/%s MB  %.2f%%\", $3,$2,$3*100/$2 }'"
+    cmd = "free -m | awk 'NR==2{printf \"Memory: %s/%s MB %.2f%%\", $3,$2,$3*100/$2 }'"
     MemUsage = subprocess.check_output(cmd, shell=True).decode("utf-8")
     cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%d GB  %s\", $3,$2,$5}'"
     Disk = subprocess.check_output(cmd, shell=True).decode("utf-8")
@@ -120,11 +121,11 @@ while True:
     elif not buttonB.value:  # just button B pressed
         draw.text((x, y), IP, font=font, fill="#FFFF00")
         y += font.getsize(IP)[1]
-        draw.text((x, y), 'I cant think', font=font, fill="#FFFF00")
+        draw.text((x, y), 'I cant think', font=font, fill="#F54D28")
         y += font.getsize(CPU)[1]
-        draw.text((x, y), 'of anything', font=font, fill="#00FF00")
+        draw.text((x, y), 'of anything', font=font, fill="#FFAA47")
         y += font.getsize(MemUsage)[1]
-        draw.text((x, y), 'interesting', font=font, fill="#0000FF")
+        draw.text((x, y), 'interesting', font=font, fill="#E33CC7")
         y += font.getsize(Disk)[1]
         draw.text((x, y), "Queries: {}".format(DNSQUERIES), font=font, fill="#FF00FF")
     else:
