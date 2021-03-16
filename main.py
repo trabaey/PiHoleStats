@@ -141,6 +141,6 @@ while True:
         draw.text((x, y), "Queries: {}".format(str(DNSQUERIES)), font=font, fill="#FF00FF")
         y += font.getsize(str(DNSQUERIES))[1]
 
-    # Display image.
+    # Display image. Test change to test git update on Pi
     disp.image(image, rotation)
     time.sleep(.1)
