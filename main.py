@@ -122,11 +122,11 @@ while True:
     elif not buttonB.value:  # just button B pressed
         draw.text((x, y), IP, font=font, fill="#FFFF00")
         y += font.getsize(IP)[1]
-        draw.text((x, y), 'I cant think', font=font, fill="#F54D28")
+        draw.text((x, y), 'Well well well,', font=font, fill="#F54D28")
         y += font.getsize(CPU)[1]
-        draw.text((x, y), 'of anything', font=font, fill="#FFAA47")
+        draw.text((x, y), 'I see you pressed', font=font, fill="#FFAA47")
         y += font.getsize(MemUsage)[1]
-        draw.text((x, y), 'interesting', font=font, fill="#E33CC7")
+        draw.text((x, y), 'The second button again', font=font, fill="#E33CC7")
         y += font.getsize(Disk)[1]
         draw.text((x, y), "Queries: {}".format(DNSQUERIES), font=font, fill="#FF00FF")
     else:
